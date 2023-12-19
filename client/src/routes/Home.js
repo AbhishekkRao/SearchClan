@@ -1,24 +1,17 @@
-import logo from '../assets/images/hirexs_logo.png';
-import mountains from '../assets/images/mountains.png';
 import { Link } from 'react-router-dom';
 
-const HomeComponent = () => {
+const Home = () => {
 	return (
 		<div
-			className='w-full h-full bg-app-black overflow-auto'
-			style={{
-				backgroundImage: `url(${mountains})`,
-				backgroundSize: 'cover',
-				backgroundPosition: 'center',
-			}}>
+			className='w-full h-full bg-app-black overflow-auto'>
 			<div className='flex p-8 justify-between font-semibold'>
 				<div className='ml-10'>
 					<Link to='/home'>
-						<img
+						{/* <img
 							src={logo}
 							alt='logo'
 							style={{ width: '209px', height: '51px' }}
-						/>
+						/> */}
 					</Link>
 				</div>
 			</div>
@@ -39,4 +32,4 @@ const HomeComponent = () => {
 	);
 };
 
-export default HomeComponent;
+export default Home;

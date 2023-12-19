@@ -1,10 +1,6 @@
 import './output.css';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import HomeComponent from './routes/HomeComponent';
-import MeetingComponent from './routes/MeetingComponent';
-import MedicalComponent from './routes/MedicalComponent';
-import VacationComponent from './routes/VacationComponent';
-import WeddingComponent from './routes/WeddingComponent';
+import Home from './routes/Home'
 
 function App() {
   return (
@@ -13,9 +9,9 @@ function App() {
         <Routes>
           <Route
             path='/home'
-            element=<HomeComponent />
+            element=<Home />
           />
-          <Route
+          {/* <Route
             path='/medical'
             element=<MedicalComponent />
           />
@@ -30,7 +26,7 @@ function App() {
           <Route
             path='/weddings'
             element=<WeddingComponent />
-          />
+          /> */}
           <Route
             path='*'
             element=<Navigate to='/home' />
