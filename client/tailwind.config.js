@@ -20,6 +20,9 @@ module.exports = {
       colors: {
         "light-yellow": "#FAF8ED",
         "faded-black": "#2D3134",
+        "high-green": "#B7E184",
+        "light-gray": "#595961",
+        "light-orange": "#FFEBCC",
       },
       height: {
         "1/10": "10%",
