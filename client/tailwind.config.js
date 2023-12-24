@@ -39,6 +39,13 @@ module.exports = {
       fontFamily: {
         'poppins': ['Poppins'],
       },
+      spacing: {
+        '-19.25': '-77px',
+        '-21.75': '-87px',
+        '-23': '-92px',
+        '-25.25': '-101px',
+        '-43': '-172px',
+      },
     },
   },
   plugins: [],

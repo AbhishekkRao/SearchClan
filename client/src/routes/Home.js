@@ -12,7 +12,10 @@ import medicalIcon from '../assets/medicalIcon.svg';
 import meetingIcon from '../assets/meetingIcon.svg';
 import weddingIcon from '../assets/weddingIcon.svg';
 import vacationIcon from '../assets/vacationIcon.svg';
-import tour_set from '../assets/tour_set.svg';
+import medicalAvatar1 from '../assets/medicalAvatar1.svg';
+import meetingAvatar1 from '../assets/meetingAvatar1.svg';
+import weddingAvatar1 from '../assets/weddingAvatar1.svg';
+import vacationAvatar1 from '../assets/vacationAvatar1.svg';
 
 const Home = () => {
 	return (
@@ -29,7 +32,7 @@ const Home = () => {
 				</div>
 				<img src={tbo} alt='TBO' className='w-40' />
 			</div>
-			<div className='mt-16'>
+			<div className='mt-12'>
 				<div className='flex flex-row justify-left'>
 					<div className='flex-col'>
 						<img src={line1} alt='' className='' />
@@ -57,7 +60,7 @@ const Home = () => {
 			</div>
 			<div className='w-full flex justify-center'>
 				<div className='w-3/4 h-64 flex flex-row justify-center items-end mt-20'>
-					<div className='w-64 h-64 bg-light-orange rounded-3xl rounded-br-none shadow-xl z-10 flex flex-col justify-center'>
+					<div className='w-64 h-64 bg-light-orange rounded-3xl rounded-br-none shadow-xl flex flex-col justify-center'>
 						<div className='mt-4 text-voilet-text text-xl font-semibold flex justify-center'>
 							Online Booking
 						</div>
@@ -71,7 +74,7 @@ const Home = () => {
 					</div>
 					<div className='h-48  bg-white rounded-r-3xl flex flex-row shadow-xl'>
 						<div className='flex items-center justify-between gap-x-5 mx-5'>
-							<div className='h-40 w-40 bg-pastel-blue rounded-2xl'>
+							<div className='relative h-40 w-40 bg-pastel-blue rounded-2xl group cursor-pointer'>
 								<div className='w-10 h-10 bg-white rounded-md flex justify-center items-center ml-8 mt-8 mb-4'>
 									<img src={medicalIcon} alt='' className='w-7 p-0.5' />
 								</div>
@@ -79,8 +82,15 @@ const Home = () => {
 									<h1 className='text-voilet-text text-xl font-semibold'>Medical</h1>
 									<p className='text-voilet-text text-base font-normal'>Tourism</p>
 								</div>
+								<div className='absolute left-0 top-0 w-full h-full bg-cover bg-no-repeat opacity-0 transition-opacity duration-300 group-hover:opacity-100'>
+									<img
+										src={medicalAvatar1}
+										alt='Hovered Image'
+										className='h-52 absolute -left-21.75 -top-16 pointer-events-none'
+									/>
+								</div>
 							</div>
-							<div className='h-40 w-40 bg-pastel-purple rounded-2xl'>
+							<div className='relative h-40 w-40 bg-pastel-purple rounded-2xl group cursor-pointer'>
 								<div className='w-10 h-10 bg-white rounded-md flex justify-center items-center ml-8 mt-8 mb-4'>
 									<img src={meetingIcon} alt='' className='w-7 p-0.5' />
 								</div>
@@ -88,8 +98,15 @@ const Home = () => {
 									<h1 className='text-voilet-text text-xl font-semibold'>Meetings</h1>
 									<p className='text-voilet-text text-base font-normal'>Tourism</p>
 								</div>
+								<div className='absolute left-0 top-0 w-full h-full bg-cover bg-no-repeat opacity-0 transition-opacity duration-300 group-hover:opacity-100'>
+									<img
+										src={meetingAvatar1}
+										alt='Hovered Image'
+										className='h-52 absolute -left-19.25 -top-12 pointer-events-none'
+									/>
+								</div>
 							</div>
-							<div className='h-40 w-40 bg-pastel-red rounded-2xl'>
+							<div className='relative h-40 w-40 bg-pastel-red rounded-2xl group cursor-pointer'>
 								<div className='w-10 h-10 bg-white rounded-md flex justify-center items-center ml-8 mt-8 mb-4'>
 									<img src={weddingIcon} alt='' className='w-7 p-0.5' />
 								</div>
@@ -97,8 +114,15 @@ const Home = () => {
 									<h1 className='text-voilet-text text-xl font-semibold'>Weddings</h1>
 									<p className='text-voilet-text text-base font-normal'>Tourism</p>
 								</div>
+								<div className='absolute left-0 top-0 w-full h-full bg-cover bg-no-repeat opacity-0 transition-opacity duration-300 group-hover:opacity-100'>
+									<img
+										src={weddingAvatar1}
+										alt='Hovered Image'
+										className='h-52 absolute -left-23 pointer-events-none'
+									/>
+								</div>
 							</div>
-							<div className='h-40 w-40 bg-pastel-green rounded-2xl'>
+							<div className='relative h-40 w-40 bg-pastel-green rounded-2xl group cursor-pointer'>
 								<div className='w-10 h-10 bg-white rounded-md flex justify-center items-center ml-8 mt-8 mb-4'>
 									<img src={vacationIcon} alt='' className='w-7 p-0.5' />
 								</div>
@@ -106,7 +130,15 @@ const Home = () => {
 									<h1 className='text-voilet-text text-xl font-semibold'>Vacation</h1>
 									<p className='text-voilet-text text-base font-normal'>Tourism</p>
 								</div>
+								<div className='absolute left-0 top-0 w-full h-full bg-cover bg-no-repeat opacity-0 transition-opacity duration-300 group-hover:opacity-100'>
+									<img
+										src={vacationAvatar1}
+										alt='Hovered Image'
+										className='h-52 absolute -top-43 pointer-events-none'
+									/>
+								</div>
 							</div>
+
 							<div className=''>
 								<img src={ham} alt='' className='' />
 							</div>
