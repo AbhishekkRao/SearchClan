@@ -25,7 +25,7 @@ const Meeting = () => {
 				/>
 			</div>
 
-			<SearchForm chooseBgImage={meetimg} />
+			<SearchForm sector='meeting' />
 		</div>
 	);
 };

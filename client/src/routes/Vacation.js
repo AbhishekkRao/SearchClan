@@ -25,7 +25,7 @@ const Vacation = () => {
 				/>
 			</div>
 
-			<SearchForm chooseBgImage={vacimg} />
+			<SearchForm sector='vacation' />
 		</div>
 	);
 };

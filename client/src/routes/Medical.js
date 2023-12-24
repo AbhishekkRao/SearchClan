@@ -25,7 +25,7 @@ const Medical = () => {
 				/>
 			</div>
 
-			<SearchForm chooseBgImage={medimg} />
+			<SearchForm sector='medical' />
 		</div>
 	);
 };

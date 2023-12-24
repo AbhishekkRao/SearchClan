@@ -25,7 +25,7 @@ const Wedding = () => {
 				/>
 			</div>
 
-			<SearchForm chooseBgImage={wedimg} />
+			<SearchForm sector='wedding' />
 		</div>
 	);
 };
