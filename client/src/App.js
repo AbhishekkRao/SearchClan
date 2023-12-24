@@ -2,6 +2,9 @@ import './output.css';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './routes/Home'
 import Medical from './routes/Medical';
+import Meeting from './routes/Meeting';
+import Vacation from './routes/Vacation';
+import Wedding from './routes/Wedding';
 
 function App() {
   return (
@@ -16,18 +19,18 @@ function App() {
             path='/medical'
             element=<Medical />
           />
-          {/*<Route
+          <Route
             path='/meetings'
-            element=<MeetingComponent />
+            element=<Meeting />
           />
           <Route
             path='/vacation'
-            element=<VacationComponent />
+            element=<Vacation />
           />
           <Route
             path='/weddings'
-            element=<WeddingComponent />
-          /> */}
+            element=<Wedding />
+          />
           <Route
             path='*'
             element=<Navigate to='/home' />
