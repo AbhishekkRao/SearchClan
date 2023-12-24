@@ -73,7 +73,7 @@ const SearchForm = ({ sector }) => {
 					<img
 						src={decoration2}
 						alt='Decoration 2'
-						className='absolute bottom-0 left-0 transform -translate-x-2/4 translate-y-2/4 z-20'
+						className='absolute bottom-0 left-0 transform -translate-x-2/4 translate-y-1/4 z-20'
 					/>
 				)}
 				{decoration3 && (
