@@ -5,7 +5,7 @@ import SearchForm from '../components/SearchForm';
 
 const Medical = () => {
     return (
-        <div className='h-full w-full overflow-auto' style={{ backgroundColor: '#83c4fb' }}>
+        <div className='h-full w-full overflow-auto med-bg'>
             <div className='h-1/10 m-2 flex justify-between'>
                 <img src={logo} alt='LOGO' className='w-32' />
                 <div className='w-1/3 h-12 mt-8 bg-white rounded-3xl shadow-lg'>

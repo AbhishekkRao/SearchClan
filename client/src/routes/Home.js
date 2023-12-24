@@ -6,6 +6,12 @@ import line3 from '../assets/line3.svg';
 import main from '../assets/main.png';
 import plane from '../assets/plane.svg';
 import ham from '../assets/ham.svg';
+import map from '../assets/map.png';
+import pointer from '../assets/pointer.svg';
+import medical from '../assets/medical.svg';
+import meeting from '../assets/meeting.svg';
+import wedding from '../assets/wedding.svg';
+import vacation from '../assets/vacation.svg';
 import tour_set from '../assets/tour_set.svg';
 
 const Home = () => {
@@ -49,23 +55,40 @@ const Home = () => {
 					<img src={line3} alt='' className='w-1/12' />
 				</div>
 			</div>
-			<div className='w-3/4 h-1/5 flex flex-row'>
-				<div className='w-1/5 h-1/4 bg-light-orange'>
-
-				</div>
-				<div className='w-7/12 bg-white rounded-3xl mt-32 mx-52 flex flex-row shadow-xl'>
-					<div className=''>
-						<div className=''>
+			<div className='w-full flex justify-center'>
+				<div className='w-3/4 h-64 flex flex-row justify-center items-end mt-20'>
+					<div className='w-64 h-64 bg-light-orange rounded-3xl rounded-br-none shadow-xl z-10 flex flex-col justify-center'>
+						<div className='mt-4 text-voilet-text text-xl font-semibold flex justify-center'>
+							Online Booking
 						</div>
-						<div className=''>
-						</div>
-						<div className=''>
-						</div>
-						<div className=''>
+						<div className='w-60 h-28 mt-8 bg-map flex justify-center self-center p-4'>
+							<div className='flex flex-col justify-center items-center'>
+								<img src={pointer} alt='' className='w-8'/>
+								<span className='text-voilet-text text-2xl font-semibold mt-3'>Choose</span>
+								<p className='text-voilet-text text-base font-normal'>your companion</p>
+							</div>
 						</div>
 					</div>
-					<div className=''>
-						<img src={ham} alt='' className='w-' />
+					<div className='h-48  bg-white rounded-r-3xl flex flex-row shadow-xl'>
+						<div className='flex items-center justify-between gap-x-5 mx-5'>
+							<div className='h-40 w-40 bg-pastel-blue rounded-2xl'>
+								<div className='w-10 h-10 bg-white rounded-md flex flex-col justify-center m-9'>
+									<img src={medical} alt='' className='w-7 p-0.5'/>
+									<span className='w-28 text-voilet-text text-lg font-semibold mt-3'>Choose</span>
+									<p className='w-20 text-voilet-text text-sm font-normal'>your companion</p>
+								</div>
+							</div>
+							<div className='h-40 w-40 bg-pastel-purple rounded-2xl'>
+							</div>
+							<div className='h-40 w-40 bg-pastel-red rounded-2xl'>
+							</div>
+							<div className='h-40 w-40 bg-pastel-green rounded-2xl'>
+							</div>
+							<div className=''>
+							<img src={ham} alt='' className='' />
+						    </div>
+						</div>
+						
 					</div>
 				</div>
 			</div>
