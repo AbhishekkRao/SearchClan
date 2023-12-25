@@ -47,31 +47,31 @@ const SearchForm = ({ sector }) => {
 		decoration3 = medicalDecor3;
 		chooseBgImage = medimg;
 		chooseFontColor = 'text-medical-text';
-		chooseButtonColor = 'medical-button';
+		chooseButtonColor = 'bg-medical-button';
 		avatar = medicalAvatar;
 	} else if (sector === 'vacation') {
 		decoration1 = vacationDecor1;
 		decoration2 = vacationDecor2;
 		decoration3 = vacationDecor3;
 		chooseBgImage = vacimg;
-		chooseFontColor = 'vacation-text';
-		chooseButtonColor = 'vacation-button';
+		chooseFontColor = 'text-vacation-text';
+		chooseButtonColor = 'bg-vacation-button';
 		avatar = vacationAvatar;
 	} else if (sector === 'wedding') {
 		decoration1 = weddingDecor1;
 		decoration2 = weddingDecor2;
 		decoration3 = weddingDecor3;
 		chooseBgImage = wedimg;
-		chooseFontColor = 'wedding-text';
-		chooseButtonColor = 'wedding-button';
+		chooseFontColor = 'text-wedding-text';
+		chooseButtonColor = 'bg-wedding-button';
 		avatar = weddingAvatar;
 	} else if (sector === 'meeting') {
 		decoration1 = meetingDecor1;
 		decoration2 = meetingDecor2;
 		decoration3 = meetingDecor3;
 		chooseBgImage = meetimg;
-		chooseFontColor = 'meeting-text';
-		chooseButtonColor = 'meeting-button';
+		chooseFontColor = 'text-meeting-text';
+		chooseButtonColor = 'bg-meeting-button';
 		avatar = meetingAvatar;
 	}
 

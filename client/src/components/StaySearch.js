@@ -112,7 +112,7 @@ const StaySearch = ({ fontColor, buttonColor }) => {
 			</div>
 			<div className='mt-6 flex justify-end'>
 				<button
-					className={`bg-${buttonColor} text-white px-6 py-2 rounded-full hover:bg-blue-600 hover:shadow-lg`}
+					className={`${buttonColor} text-white px-6 py-2 rounded-full hover:bg-blue-600 hover:shadow-lg`}
 					onClick={handleStayFormSubmit}>
 					Take me there!
 				</button>

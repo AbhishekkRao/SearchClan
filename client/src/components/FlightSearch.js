@@ -127,7 +127,7 @@ const FlightSearch = ({ fontColor, buttonColor }) => {
                 </div>
             </div>
             <div className='mt-6'>
-                <label className='  '>Additional Inputs</label>
+                <label className=''>Additional Inputs</label>
                 <input
                     type='text'
                     className='w-full h-14 mt-2 p-2 border rounded'
@@ -138,7 +138,7 @@ const FlightSearch = ({ fontColor, buttonColor }) => {
             </div>
             <div className='mt-6 flex justify-end'>
                 <button
-                    className={'bg-${buttonColor} flex flex-row gap-2 text-white px-6 py-2 rounded-full hover:bg-blue-600 hover:shadow-lg'}
+                    className={'${buttonColor} flex flex-row gap-2 text-white px-6 py-2 rounded-full hover:bg-blue-600 hover:shadow-lg'}
                     onClick={handleFlightsFormSubmit}
                 >
                     Get Flights
