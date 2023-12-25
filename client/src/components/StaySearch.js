@@ -29,7 +29,7 @@ const StaySearch = ({ fontColor, buttonColor }) => {
 					<Icon
 						icon='mdi:location'
 						height={26}
-						color='#1345AA'
+						color={'${fontColor}'}
 						className='relative -top-10 -left-2 z-10'
 						tabIndex={-1}
 					/>
@@ -112,7 +112,7 @@ const StaySearch = ({ fontColor, buttonColor }) => {
 			</div>
 			<div className='mt-6 flex justify-end'>
 				<button
-					className={`${buttonColor} text-white px-6 py-2 rounded-full hover:bg-blue-600 hover:shadow-lg`}
+					className={`${buttonColor} text-white px-6 py-2 rounded-full hover:shadow-xl hover:scale-105`}
 					onClick={handleStayFormSubmit}>
 					Take me there!
 				</button>

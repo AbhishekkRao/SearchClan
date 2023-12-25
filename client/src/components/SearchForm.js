@@ -112,13 +112,13 @@ const SearchForm = ({ sector }) => {
 				<div className='relative z-10'>
 					<div className='gap-x-10 flex justify-center'>
 						<span
-							className={`${chooseFontColor} cursor-pointer ${stayFormVisible ? 'border-b-2 border-blue-900' : ''
+							className={`${chooseFontColor} cursor-pointer ${stayFormVisible ? 'border-b-2 border-white' : ''
 								}`}
 							onClick={handleStayClick}>
 							Stay
 						</span>
 						<span
-							className={`${chooseFontColor} cursor-pointer ${flightsFormVisible ? 'border-b-2 border-blue-900' : ''
+							className={`${chooseFontColor} cursor-pointer ${flightsFormVisible ? 'border-b-2 border-white' : ''
 								}`}
 							onClick={handleFlightsClick}>
 							Flights

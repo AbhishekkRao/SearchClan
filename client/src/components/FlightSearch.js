@@ -138,7 +138,7 @@ const FlightSearch = ({ fontColor, buttonColor }) => {
             </div>
             <div className='mt-6 flex justify-end'>
                 <button
-                    className={'${buttonColor} flex flex-row gap-2 text-white px-6 py-2 rounded-full hover:bg-blue-600 hover:shadow-lg'}
+					className={`${buttonColor} flex flex-row gap-2 text-white px-6 py-2 rounded-full  hover:shadow-xl hover:scale-105`}
                     onClick={handleFlightsFormSubmit}
                 >
                     Get Flights
