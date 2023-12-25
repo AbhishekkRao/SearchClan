@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Icon } from '@iconify/react';
 
-const FlightSearch = () => {
+const FlightSearch = ({ fontColor, buttonColor }) => {
 
     const [fromLocation, setFromLocation] = useState('');
     const [toLocation, setToLocation] = useState('');
@@ -25,10 +25,10 @@ const FlightSearch = () => {
     };
 
     return (
-        <div>
+        <div className={`text-${fontColor}`}>
             <div className='flex mt-8 justify-between items-center'>
                 <div className='w-1/2'>
-                    <label className='text-gray-700'>From</label>
+                    <label className=''>From</label>
                     <input
                         type='text'
                         className='w-full h-14 mt-2 p-2 border rounded'
@@ -45,7 +45,7 @@ const FlightSearch = () => {
                     <Icon icon="tdesign:swap" width={24} />
                 </button>
                 <div className='w-1/2'>
-                    <label className='text-gray-700'>Going to</label>
+                    <label className='  '>Going to</label>
                     <input
                         type='text'
                         className='w-full h-14 mt-2 p-2 border rounded'
@@ -57,7 +57,7 @@ const FlightSearch = () => {
             </div>
             <div className='flex gap-x-8 mt-6'>
                 <div className='w-1/2'>
-                    <label className='text-gray-700'>Departure Date</label>
+                    <label className='  '>Departure Date</label>
                     <input
                         type='date'
                         className='w-full h-14 mt-2 p-2 border rounded'
@@ -67,7 +67,7 @@ const FlightSearch = () => {
                     />
                 </div>
                 <div className='w-1/2'>
-                    <label className='text-gray-700'>Arrival Date</label>
+                    <label className='  '>Arrival Date</label>
                     <input
                         type='date'
                         className='w-full h-14 mt-2 p-2 border rounded'
@@ -78,7 +78,7 @@ const FlightSearch = () => {
                 </div>
             </div>
             <div className='flex flex-col justify-between mt-6'>
-                <label className='text-gray-700'>Travellers & Cabin Class</label>
+                <label className='  '>Travellers & Cabin Class</label>
                 <div className='flex mt-2 gap-x-2'>
                     <select
                         className='w-1/4 h-14 p-2 border rounded'
@@ -127,7 +127,7 @@ const FlightSearch = () => {
                 </div>
             </div>
             <div className='mt-6'>
-                <label className='text-gray-700'>Additional Inputs</label>
+                <label className='  '>Additional Inputs</label>
                 <input
                     type='text'
                     className='w-full h-14 mt-2 p-2 border rounded'
@@ -138,11 +138,13 @@ const FlightSearch = () => {
             </div>
             <div className='mt-6 flex justify-end'>
                 <button
-                    className='bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 hover:shadow-lg'
+                    className={'bg-${buttonColor} flex flex-row gap-2 text-white px-6 py-2 rounded-full hover:bg-blue-600 hover:shadow-lg'}
                     onClick={handleFlightsFormSubmit}
                 >
                     Get Flights
+                    <Icon icon="material-symbols-light:flight-takeoff" className='' color="white" width="20" />
                 </button>
+                
             </div>
         </div>
     )

@@ -40,13 +40,14 @@ const SearchForm = ({ sector }) => {
 		setStayFormVisible(false);
 	};
 
-	let decoration1, decoration2, decoration3, chooseBgImage, chooseFontColor, avatar;
+	let decoration1, decoration2, decoration3, chooseBgImage, chooseFontColor, chooseButtonColor, avatar;
 	if (sector === 'medical') {
 		decoration1 = medicalDecor1;
 		decoration2 = medicalDecor2;
 		decoration3 = medicalDecor3;
 		chooseBgImage = medimg;
 		chooseFontColor = 'medical-text';
+		chooseButtonColor = 'medical-button';
 		avatar = medicalAvatar;
 	} else if (sector === 'vacation') {
 		decoration1 = vacationDecor1;
@@ -54,6 +55,7 @@ const SearchForm = ({ sector }) => {
 		decoration3 = vacationDecor3;
 		chooseBgImage = vacimg;
 		chooseFontColor = 'vacation-text';
+		chooseButtonColor = 'vacation-button';
 		avatar = vacationAvatar;
 	} else if (sector === 'wedding') {
 		decoration1 = weddingDecor1;
@@ -61,6 +63,7 @@ const SearchForm = ({ sector }) => {
 		decoration3 = weddingDecor3;
 		chooseBgImage = wedimg;
 		chooseFontColor = 'wedding-text';
+		chooseButtonColor = 'wedding-button';
 		avatar = weddingAvatar;
 	} else if (sector === 'meeting') {
 		decoration1 = meetingDecor1;
@@ -68,11 +71,12 @@ const SearchForm = ({ sector }) => {
 		decoration3 = meetingDecor3;
 		chooseBgImage = meetimg;
 		chooseFontColor = 'meeting-text';
+		chooseButtonColor = 'meeting-button';
 		avatar = meetingAvatar;
 	}
 
 	return (
-		<div className='flex justify-center'>
+		<div className={'flex justify-center'}>
 			<div className='relative bg-white bg-opacity-50 w-1/2 rounded-3xl p-10 my-20'>
 				{decoration1 && (
 					<img
@@ -123,9 +127,9 @@ const SearchForm = ({ sector }) => {
 						</span>
 					</div>
 
-					{stayFormVisible && <StaySearch />}
+					{stayFormVisible && <StaySearch fontColor={chooseFontColor} buttonColor={chooseButtonColor}/>}
 
-					{flightsFormVisible && <FlightSearch />}
+					{flightsFormVisible && <FlightSearch fontColor={chooseFontColor} buttonColor={chooseButtonColor}/>}
 				</div>
 			</div>
 		</div>
@@ -133,3 +137,5 @@ const SearchForm = ({ sector }) => {
 };
 
 export default SearchForm;
+
+

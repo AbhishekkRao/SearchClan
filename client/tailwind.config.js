@@ -35,6 +35,10 @@ module.exports = {
         "meeting-text": "#3B2CAD",
         "wedding-text": "#C12E2F",
         "vacation-text": "#3C4C0B",
+        "medical-button": "#307FE2",
+        "meeting-button": "#5B54B2",
+        "wedding-button": "#C05159",
+        "vacation-button": "#3C4C0B",
       },
       height: {
         "1/10": "10%",

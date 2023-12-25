@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Icon } from '@iconify/react';
 
-const StaySearch = () => {
+const StaySearch = ({ fontColor, buttonColor }) => {
 	const [destination, setDestination] = useState('');
 	const [checkInDate, setCheckInDate] = useState('');
 	const [checkOutDate, setCheckOutDate] = useState('');
@@ -15,9 +15,9 @@ const StaySearch = () => {
 	};
 
 	return (
-		<div>
+		<div className={`text-${fontColor}`}>
 			<div className='mt-6'>
-				<label className='text-gray-700'>Destination</label>
+				<label className=''>Destination</label>
 				<span className='flex flex-col items-end mt-2'>
 					<input
 						type='text'
@@ -37,7 +37,7 @@ const StaySearch = () => {
 			</div>
 			<div className='flex gap-x-8'>
 				<div className='w-1/2'>
-					<label className='text-gray-700'>Check In</label>
+					<label className=''>Check In</label>
 					<input
 						type='date'
 						className='w-full h-14 mt-2 p-2 border rounded'
@@ -47,7 +47,7 @@ const StaySearch = () => {
 					/>
 				</div>
 				<div className='w-1/2'>
-					<label className='text-gray-700'>Check Out</label>
+					<label className=''>Check Out</label>
 					<input
 						type='date'
 						className='w-full h-14 mt-2 p-2 border rounded'
@@ -59,7 +59,7 @@ const StaySearch = () => {
 			</div>
 			<div className='mt-6'>
 				<div>
-					<label className='text-gray-700'>Rooms & Guests</label>
+					<label className=''>Rooms & Guests</label>
 				</div>
 				<div className='flex mt-2 gap-x-2 h-14'>
 					<select
@@ -101,7 +101,7 @@ const StaySearch = () => {
 				</div>
 			</div>
 			<div className='mt-6'>
-				<label className='text-gray-700'>Additional Inputs</label>
+				<label className=''>Additional Inputs</label>
 				<input
 					type='text'
 					className='w-full mt-2 p-2 border rounded h-14'
@@ -112,7 +112,7 @@ const StaySearch = () => {
 			</div>
 			<div className='mt-6 flex justify-end'>
 				<button
-					className='bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 hover:shadow-lg'
+					className={`bg-${buttonColor} text-white px-6 py-2 rounded-full hover:bg-blue-600 hover:shadow-lg`}
 					onClick={handleStayFormSubmit}>
 					Take me there!
 				</button>
