@@ -46,7 +46,7 @@ const SearchForm = ({ sector }) => {
 		decoration2 = medicalDecor2;
 		decoration3 = medicalDecor3;
 		chooseBgImage = medimg;
-		chooseFontColor = 'medical-text';
+		chooseFontColor = 'text-medical-text';
 		chooseButtonColor = 'medical-button';
 		avatar = medicalAvatar;
 	} else if (sector === 'vacation') {
@@ -112,24 +112,22 @@ const SearchForm = ({ sector }) => {
 				<div className='relative z-10'>
 					<div className='gap-x-10 flex justify-center'>
 						<span
-							className={`text-${chooseFontColor} cursor-pointer ${
-								stayFormVisible ? 'border-b-2 border-blue-900' : ''
-							}`}
+							className={`${chooseFontColor} cursor-pointer ${stayFormVisible ? 'border-b-2 border-blue-900' : ''
+								}`}
 							onClick={handleStayClick}>
 							Stay
 						</span>
 						<span
-							className={`text-${chooseFontColor} cursor-pointer ${
-								flightsFormVisible ? 'border-b-2 border-blue-900' : ''
-							}`}
+							className={`${chooseFontColor} cursor-pointer ${flightsFormVisible ? 'border-b-2 border-blue-900' : ''
+								}`}
 							onClick={handleFlightsClick}>
 							Flights
 						</span>
 					</div>
 
-					{stayFormVisible && <StaySearch fontColor={chooseFontColor} buttonColor={chooseButtonColor}/>}
+					{stayFormVisible && <StaySearch fontColor={chooseFontColor} buttonColor={chooseButtonColor} />}
 
-					{flightsFormVisible && <FlightSearch fontColor={chooseFontColor} buttonColor={chooseButtonColor}/>}
+					{flightsFormVisible && <FlightSearch fontColor={chooseFontColor} buttonColor={chooseButtonColor} />}
 				</div>
 			</div>
 		</div>

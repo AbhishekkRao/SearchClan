@@ -25,7 +25,7 @@ const FlightSearch = ({ fontColor, buttonColor }) => {
     };
 
     return (
-        <div className={`text-${fontColor}`}>
+        <div className={`${fontColor}`}>
             <div className='flex mt-8 justify-between items-center'>
                 <div className='w-1/2'>
                     <label className=''>From</label>
@@ -144,7 +144,7 @@ const FlightSearch = ({ fontColor, buttonColor }) => {
                     Get Flights
                     <Icon icon="material-symbols-light:flight-takeoff" className='' color="white" width="20" />
                 </button>
-                
+
             </div>
         </div>
     )

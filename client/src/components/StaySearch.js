@@ -15,7 +15,7 @@ const StaySearch = ({ fontColor, buttonColor }) => {
 	};
 
 	return (
-		<div className={`text-${fontColor}`}>
+		<div className={`${fontColor}`}>
 			<div className='mt-6'>
 				<label className=''>Destination</label>
 				<span className='flex flex-col items-end mt-2'>
