@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import logo from '../assets/logo.svg';
 import tbo from '../assets/tbo.svg';
 import SearchForm from '../components/SearchForm';
-import wedimg from '../assets/wedding-form-bg.png';
+import wedding from '../assets/wedding-form-bg.png';
 
 const Wedding = () => {
 	return (
@@ -11,7 +11,7 @@ const Wedding = () => {
 				<img
 					src={logo}
 					alt='LOGO'
-					className='w-32'
+					className='w-32 mx-12'
 				/>
 				<div className='w-1/3 h-12 mt-8 bg-white rounded-3xl shadow-lg'>
 					<div className='px-12 py-3 uppercase'>
@@ -21,7 +21,7 @@ const Wedding = () => {
 				<img
 					src={tbo}
 					alt='TBO'
-					className='w-40'
+					className='w-40 mx-12'
 				/>
 			</div>
 

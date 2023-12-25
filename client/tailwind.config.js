@@ -31,6 +31,10 @@ module.exports = {
         "pastel-purple": "#E3E1F9",
         "pastel-red": "#F9E1E1",
         "voilet-text": "#3E4165",
+        "medical-text": "#1346AA",
+        "meeting-text": "#3B2CAD",
+        "wedding-text": "#C12E2F",
+        "vacation-text": "#3C4C0B",
       },
       height: {
         "1/10": "10%",

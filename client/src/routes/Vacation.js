@@ -11,7 +11,7 @@ const Vacation = () => {
 				<img
 					src={logo}
 					alt='LOGO'
-					className='w-32'
+					className='w-32 mx-12'
 				/>
 				<div className='w-1/3 h-12 mt-8 bg-white rounded-3xl shadow-lg'>
 					<div className='px-12 py-3 uppercase'>
@@ -21,7 +21,7 @@ const Vacation = () => {
 				<img
 					src={tbo}
 					alt='TBO'
-					className='w-40'
+					className='w-40 mx-12'
 				/>
 			</div>
 

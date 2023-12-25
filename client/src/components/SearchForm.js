@@ -36,27 +36,31 @@ const SearchForm = ({ sector }) => {
 		setStayFormVisible(false);
 	};
 
-	let decoration1, decoration2, decoration3, chooseBgImage;
+	let decoration1, decoration2, decoration3, chooseBgImage, chooseFontColor;
 	if (sector === 'medical') {
 		decoration1 = medicalDecor1;
 		decoration2 = medicalDecor2;
 		decoration3 = medicalDecor3;
 		chooseBgImage = medimg;
+		chooseFontColor = 'medical-text';
 	} else if (sector === 'vacation') {
 		decoration1 = vacationDecor1;
 		decoration2 = vacationDecor2;
 		decoration3 = vacationDecor3;
 		chooseBgImage = vacimg;
+		chooseFontColor = 'vacation-text';
 	} else if (sector === 'wedding') {
 		decoration1 = weddingDecor1;
 		decoration2 = weddingDecor2;
 		decoration3 = weddingDecor3;
 		chooseBgImage = wedimg;
+		chooseFontColor = 'wedding-text';
 	} else if (sector === 'meeting') {
 		decoration1 = meetingDecor1;
 		decoration2 = meetingDecor2;
 		decoration3 = meetingDecor3;
 		chooseBgImage = meetimg;
+		chooseFontColor = 'meeting-text';
 	}
 
 	return (
@@ -87,16 +91,16 @@ const SearchForm = ({ sector }) => {
 					className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-cover bg-center opacity-50'
 					style={{ backgroundImage: `url(${chooseBgImage})` }}></div>
 				<div className='relative z-10'>
-					<div className='gap-x-10 flex'>
+					<div className='gap-x-10 flex justify-center'>
 						<span
-							className={`text-blue-900 cursor-pointer ${
+							className={`text-${chooseFontColor} cursor-pointer ${
 								stayFormVisible ? 'border-b-2 border-blue-900' : ''
 							}`}
 							onClick={handleStayClick}>
 							Stay
 						</span>
 						<span
-							className={`text-blue-900 cursor-pointer ${
+							className={`text-${chooseFontColor} cursor-pointer ${
 								flightsFormVisible ? 'border-b-2 border-blue-900' : ''
 							}`}
 							onClick={handleFlightsClick}>
