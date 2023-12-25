@@ -138,7 +138,7 @@ const FlightSearch = () => {
             </div>
             <div className='mt-6 flex justify-end'>
                 <button
-                    className='bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600'
+                    className='bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 hover:shadow-lg'
                     onClick={handleFlightsFormSubmit}
                 >
                     Get Flights
