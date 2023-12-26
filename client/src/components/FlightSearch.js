@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Icon } from '@iconify/react';
 
-const FlightSearch = ({ fontColor, buttonColor }) => {
+const FlightSearch = ({ fontColor, buttonColor, showPackages }) => {
 
     const [fromLocation, setFromLocation] = useState('');
     const [toLocation, setToLocation] = useState('');
@@ -15,6 +15,7 @@ const FlightSearch = ({ fontColor, buttonColor }) => {
 
     const handleFlightsFormSubmit = () => {
         console.log('Flights form submitted successfully!');
+        showPackages();
     };
 
     const handleSwap = () => {
@@ -138,7 +139,7 @@ const FlightSearch = ({ fontColor, buttonColor }) => {
             </div>
             <div className='mt-6 flex justify-end'>
                 <button
-					className={`${buttonColor} flex flex-row gap-2 text-white px-6 py-2 rounded-full  hover:shadow-xl hover:scale-105`}
+                    className={`${buttonColor} flex flex-row gap-2 text-white px-6 py-2 rounded-full  hover:shadow-xl hover:scale-105`}
                     onClick={handleFlightsFormSubmit}
                 >
                     Get Flights

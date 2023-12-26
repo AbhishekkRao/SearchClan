@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import FlightSearch from './FlightSearch';
 import StaySearch from './StaySearch';
+import Packages from './Packages';
 
 import wedimg from '../assets/wedding-form-bg.png';
 import weddingDecor1 from '../assets/wedding-decor1.svg';
@@ -29,6 +30,7 @@ import meetingAvatar from '../assets/meet-avatar.png';
 const SearchForm = ({ sector }) => {
 	const [stayFormVisible, setStayFormVisible] = useState(true);
 	const [flightsFormVisible, setFlightsFormVisible] = useState(false);
+	const [packagesVisible, setPackagesVisible] = useState(false);
 
 	const handleStayClick = () => {
 		setStayFormVisible(true);
@@ -39,6 +41,16 @@ const SearchForm = ({ sector }) => {
 		setFlightsFormVisible(true);
 		setStayFormVisible(false);
 	};
+
+	const showPackages = () => {
+		setFlightsFormVisible(false);
+		setPackagesVisible(true);
+	};
+
+	const handleGoBack = () => {
+		setFlightsFormVisible(true);
+		setPackagesVisible(false);
+	}
 
 	let decoration1, decoration2, decoration3, chooseBgImage, chooseFontColor, chooseButtonColor, avatar;
 	if (sector === 'medical') {
@@ -109,25 +121,44 @@ const SearchForm = ({ sector }) => {
 				<div
 					className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-cover bg-center opacity-50'
 					style={{ backgroundImage: `url(${chooseBgImage})` }}></div>
-				<div className='relative z-10'>
-					<div className='gap-x-10 flex justify-center'>
-						<span
-							className={`${chooseFontColor} cursor-pointer ${stayFormVisible ? 'border-b-2 border-white' : ''
-								}`}
-							onClick={handleStayClick}>
-							Stay
-						</span>
-						<span
-							className={`${chooseFontColor} cursor-pointer ${flightsFormVisible ? 'border-b-2 border-white' : ''
-								}`}
-							onClick={handleFlightsClick}>
-							Flights
-						</span>
-					</div>
+				<div className='relative z-10 w-full h-full'>
+					{!packagesVisible &&
+						<div className='gap-x-10 flex justify-center'>
+							<span
+								className={`${chooseFontColor} cursor-pointer ${stayFormVisible ? 'border-b-2 border-white' : ''
+									}`}
+								onClick={handleStayClick}>
+								Stay
+							</span>
+							<span
+								className={`${chooseFontColor} cursor-pointer ${flightsFormVisible ? 'border-b-2 border-white' : ''
+									}`}
+								onClick={handleFlightsClick}>
+								Flights
+							</span>
+						</div>
+					}
+					{stayFormVisible &&
+						<StaySearch
+							fontColor={chooseFontColor}
+							buttonColor={chooseButtonColor}
+						/>}
 
-					{stayFormVisible && <StaySearch fontColor={chooseFontColor} buttonColor={chooseButtonColor} />}
+					{flightsFormVisible &&
+						<FlightSearch
+							fontColor={chooseFontColor}
+							buttonColor={chooseButtonColor}
+							showPackages={showPackages}
+						/>}
 
-					{flightsFormVisible && <FlightSearch fontColor={chooseFontColor} buttonColor={chooseButtonColor} />}
+					{packagesVisible &&
+						<Packages
+							fontColor={chooseFontColor}
+							buttonColor={chooseButtonColor}
+							handleGoBack={handleGoBack}
+						/>
+					}
+
 				</div>
 			</div>
 		</div>
