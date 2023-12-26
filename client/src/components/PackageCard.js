@@ -10,10 +10,10 @@ import { Icon } from '@iconify/react';
 const Deliverables = ({ text, text2, icon, height }) => {
     return (
         <span className='flex flex-col items-center justify-center text-center'>
-            <span className='h-12'>
+            <span className='h-8 mt-6'>
                 <Icon icon={icon} height={height} />
             </span>
-            <p className='text-xs'>
+            <p className='text-[10px] text-gray-500 tracking-tight leading-3 '>
                 {text}
                 <br />
                 {text2 ? text2 : 'Included'}
@@ -22,24 +22,24 @@ const Deliverables = ({ text, text2, icon, height }) => {
     );
 };
 
-const PackageCard = () => {
+const PackageCard = (buttonColor) => {
     return (
         <div className='bg-white rounded-2xl h-64 flex justify-between'>
             <div className='flex items-center p-8 pr-0'>
                 <img src={Package_world} />
             </div>
             <div className='flex flex-col justify-between p-5 w-2/4'>
-                <span className='text-black text-xl font-bold e'>
-                    Adem And Havva Medical Center
+                <span className='text-bolder text-xl font-bold'>
+                    Adem & Havva Medical Center
                 </span>
                 <div className='text-gray-500 flex gap-x-3 text-lg'>
                     <span className='flex items-center gap-x-1'>
-                        <Icon icon="ion:location-outline" />
-                        Islanbul, Turkey
+                        <Icon icon="ion:location-outline" width="14"/>
+                        <p className='text-xs'>Islanbul, Turkey</p>
                     </span>
                     <span className='flex items-center gap-x-1'>
-                        <Icon icon='teenyicons:clock-outline' width={15} />
-                        6D/7N
+                        <Icon icon='teenyicons:clock-outline' width="14" />
+                        <p className='text-xs'>6D/7N</p>
                     </span>
                 </div>
                 <div className='text-gray-600 text-xl flex items-center gap-x-3'>
@@ -74,33 +74,33 @@ const PackageCard = () => {
                         TEH
                     </span>
                 </div>
-                <div className='flex gap-x-5 text-gray-600 justify-between'>
+                <div className='flex gap-x-5 text-gray-600 justify-between place-items-center'>
                     <Deliverables
                         text={'Transport'}
                         icon={'mdi:plane-car'}
-                        height={40}
+                        height={20}
                     />
                     <Deliverables
                         text={'Meals'}
                         icon={'game-icons:hot-meal'}
-                        height={40}
+                        height={20}
                     />
                     <Deliverables
                         text={'Stay'}
                         icon={`typcn:home`}
-                        height={40}
+                        height={20}
                     />
                     <Deliverables
                         text={'Airport'}
                         text2={'Transfers'}
                         icon={'material-symbols-light:flight-takeoff'}
-                        height={40}
+                        height={20}
                     />
                     <Deliverables
                         text={'24x7'}
                         text2={'Support'}
                         icon={'fluent:person-support-24-filled'}
-                        height={40}
+                        height={20}
                     />
                 </div>
             </div>
@@ -132,7 +132,7 @@ const PackageCard = () => {
                 <div className='text-right text-2xl text-black font-bold'>
                     &#8377; 75800
                 </div>
-                <div className='bg-blue-500 text-white text-3xl font-semibold p-2 rounded-lg'>
+                <div className={`bg-blue-500 w-36 h-10 text-white text-xl font-semibold px-4 pt-2 pb-1 mt-3 rounded-lg`}>
                     <button>
                         Book Now!
                     </button>
@@ -143,3 +143,4 @@ const PackageCard = () => {
 }
 
 export default PackageCard
+
