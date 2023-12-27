@@ -25,7 +25,9 @@ const Vacation = () => {
 				/>
 			</div>
 
-			<SearchForm sector='vacation' />
+			<div className='my-40'>
+				<SearchForm sector='vacation' />
+			</div>
 		</div>
 	);
 };

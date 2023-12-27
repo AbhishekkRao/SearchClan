@@ -25,7 +25,9 @@ const Meeting = () => {
 				/>
 			</div>
 
-			<SearchForm sector='meeting' />
+			<div className='my-40'>
+				<SearchForm sector='meeting' />
+			</div>
 		</div>
 	);
 };
