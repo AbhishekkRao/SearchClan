@@ -52,7 +52,7 @@ const SearchForm = ({ sector }) => {
 		setPackagesVisible(false);
 	}
 
-	let decoration1, decoration2, decoration3, chooseBgImage, chooseFontColor, chooseButtonColor, avatar;
+	let decoration1, decoration2, decoration3, chooseBgImage, chooseFontColor, chooseButtonColor, chooseBorderColor, avatar;
 	if (sector === 'medical') {
 		decoration1 = medicalDecor1;
 		decoration2 = medicalDecor2;
@@ -60,6 +60,7 @@ const SearchForm = ({ sector }) => {
 		chooseBgImage = medimg;
 		chooseFontColor = 'text-medical-text';
 		chooseButtonColor = 'bg-medical-button';
+		chooseBorderColor = 'border-medical-text';
 		avatar = medicalAvatar;
 	} else if (sector === 'vacation') {
 		decoration1 = vacationDecor1;
@@ -68,6 +69,7 @@ const SearchForm = ({ sector }) => {
 		chooseBgImage = vacimg;
 		chooseFontColor = 'text-vacation-text';
 		chooseButtonColor = 'bg-vacation-button';
+		chooseBorderColor = 'border-vacation-text';
 		avatar = vacationAvatar;
 	} else if (sector === 'wedding') {
 		decoration1 = weddingDecor1;
@@ -76,6 +78,7 @@ const SearchForm = ({ sector }) => {
 		chooseBgImage = wedimg;
 		chooseFontColor = 'text-wedding-text';
 		chooseButtonColor = 'bg-wedding-button';
+		chooseBorderColor = 'border-wedding-text';
 		avatar = weddingAvatar;
 	} else if (sector === 'meeting') {
 		decoration1 = meetingDecor1;
@@ -84,6 +87,7 @@ const SearchForm = ({ sector }) => {
 		chooseBgImage = meetimg;
 		chooseFontColor = 'text-meeting-text';
 		chooseButtonColor = 'bg-meeting-button';
+		chooseBorderColor = 'border-meeting-text';
 		avatar = meetingAvatar;
 	}
 
@@ -123,15 +127,15 @@ const SearchForm = ({ sector }) => {
 					style={{ backgroundImage: `url(${chooseBgImage})` }}></div>
 				<div className='relative z-10 w-full h-full'>
 					{!packagesVisible &&
-						<div className='gap-x-10 flex justify-center'>
+						<div className='gap-x-10 flex justify-start ml-28'>
 							<span
-								className={`${chooseFontColor} cursor-pointer ${stayFormVisible ? 'border-b-2 border-white font-semibold' : ''
+								className={`${chooseFontColor} cursor-pointer ${stayFormVisible ? `border-b-2 ${chooseBorderColor} font-semibold` : ''
 									}`}
 								onClick={handleStayClick}>
 								Stay
 							</span>
 							<span
-								className={`${chooseFontColor} cursor-pointer ${flightsFormVisible ? 'border-b-2 border-white font-semibold' : ''
+								className={`${chooseFontColor} cursor-pointer ${flightsFormVisible ? `border-b-2 ${chooseBorderColor} font-semibold` : ''
 									}`}
 								onClick={handleFlightsClick}>
 								Flights
