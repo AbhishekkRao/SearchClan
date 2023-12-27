@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import logo from '../assets/logo.svg';
 import tbo from '../assets/tbo.svg';
 import SearchForm from '../components/SearchForm';
-import meetimg from '../assets/meeting-form-bg.png';
 
 const Meeting = () => {
 	return (
@@ -13,9 +12,9 @@ const Meeting = () => {
 					alt='LOGO'
 					className='w-32 mx-12'
 				/>
-				<div className='w-1/3 h-12 mt-8 bg-white rounded-3xl shadow-lg'>
-					<div className='px-12 py-3 uppercase'>
-						Searchclan is a one-stop solution for all travel woes
+				<div className='w-1/3 h-12 flex mt-8 bg-white rounded-3xl shadow-lg overflow-hidden'>
+					<div className='px-12 py-3 uppercase  animate-marquee whitespace-nowrap overflow-hidden'>
+						Searchclan is one-stop solution for all your travel voes!
 					</div>
 				</div>
 				<img
@@ -25,7 +24,7 @@ const Meeting = () => {
 				/>
 			</div>
 
-			<div className='my-40'>
+			<div className='mt-20'>
 				<SearchForm sector='meeting' />
 			</div>
 		</div>

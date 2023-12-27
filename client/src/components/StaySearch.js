@@ -16,12 +16,12 @@ const StaySearch = ({ fontColor, buttonColor }) => {
 
 	return (
 		<div className={`${fontColor}`}>
-			<div className='mt-6'>
+			<div className='mt-4'>
 				<label className=''>Destination</label>
 				<span className='flex flex-col items-end mt-2'>
 					<input
 						type='text'
-						className='w-full h-14 p-2 border rounded'
+						className='w-full h-12 p-2 border rounded'
 						placeholder='Enter your destination'
 						value={destination}
 						onChange={(e) => setDestination(e.target.value)}
@@ -35,12 +35,12 @@ const StaySearch = ({ fontColor, buttonColor }) => {
 					/>
 				</span>
 			</div>
-			<div className='flex gap-x-8'>
+			<div className='flex -mt-3 gap-x-8'>
 				<div className='w-1/2'>
 					<label className=''>Check In</label>
 					<input
 						type='date'
-						className='w-full h-14 mt-2 p-2 border rounded'
+						className='w-full h-12 mt-2 p-2 border rounded'
 						min={new Date().toISOString().split('T')[0]}
 						value={checkInDate}
 						onChange={(e) => setCheckInDate(e.target.value)}
@@ -50,23 +50,23 @@ const StaySearch = ({ fontColor, buttonColor }) => {
 					<label className=''>Check Out</label>
 					<input
 						type='date'
-						className='w-full h-14 mt-2 p-2 border rounded'
+						className='w-full h-12 mt-2 p-2 border rounded'
 						min={new Date().toISOString().split('T')[0]}
 						value={checkOutDate}
 						onChange={(e) => setCheckOutDate(e.target.value)}
 					/>
 				</div>
 			</div>
-			<div className='mt-6'>
+			<div className='mt-4'>
 				<div>
 					<label className=''>Rooms & Guests</label>
 				</div>
-				<div className='flex mt-2 gap-x-2 h-14'>
+				<div className='flex gap-x-8 h-12'>
 					<select
-						className='w-1/3 p-2 border rounded'
+						className='w-full h-12 mt-2 p-2 border rounded'
 						value={rooms}
 						onChange={(e) => setRooms(parseInt(e.target.value))}>
-						{[1, 2, 3, 4, 5].map((num) => (
+						{[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
 							<option
 								key={num}
 								value={num}>
@@ -75,42 +75,30 @@ const StaySearch = ({ fontColor, buttonColor }) => {
 						))}
 					</select>
 					<select
-						className='w-1/3 p-2 border rounded'
+						className='w-full h-12 mt-2 p-2 border rounded'
 						value={adults}
 						onChange={(e) => setAdults(parseInt(e.target.value))}>
-						{[1, 2, 3, 4, 5].map((num) => (
+						{[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
 							<option
 								key={num}
 								value={num}>
-								{num} Adults
-							</option>
-						))}
-					</select>
-					<select
-						className='w-1/3 p-2 border rounded'
-						value={children}
-						onChange={(e) => setChildren(parseInt(e.target.value))}>
-						{[0, 1, 2, 3, 4, 5].map((num) => (
-							<option
-								key={num}
-								value={num}>
-								{num} Children
+								{num} Guests
 							</option>
 						))}
 					</select>
 				</div>
 			</div>
-			<div className='mt-6'>
+			<div className='mt-4'>
 				<label className=''>Additional Inputs</label>
 				<input
 					type='text'
-					className='w-full mt-2 p-2 border rounded h-14'
+					className='w-full mt-2 p-2 border rounded h-12'
 					placeholder='Any additional preferences'
 					value={additionalInputs}
 					onChange={(e) => setAdditionalInputs(e.target.value)}
 				/>
 			</div>
-			<div className='mt-6 flex justify-end'>
+			<div className='mt-4 flex justify-end'>
 				<button
 					className={`${buttonColor} text-white px-6 py-2 rounded-full hover:shadow-xl hover:scale-105`}
 					onClick={handleStayFormSubmit}>

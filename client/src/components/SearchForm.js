@@ -101,7 +101,7 @@ const SearchForm = ({ sector }) => {
 
 	return (
 		<div className={'flex justify-center'}>
-			<div className='relative bg-white bg-opacity-50 w-1/2 rounded-3xl p-20 my-20'>
+			<div className='relative bg-white bg-opacity-50 w-1/2 rounded-3xl p-10 my-20'>
 				{decoration1 && (
 					<img
 						src={decoration1}
@@ -133,21 +133,24 @@ const SearchForm = ({ sector }) => {
 				<div
 					className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-cover bg-center opacity-50'
 					style={{ backgroundImage: `url(${chooseBgImage})` }}></div>
-				<div className='relative z-10 w-full h-full'>
+				<div className='relative -top-6 z-10 w-full h-full'>
 					{!packagesVisible && (
 						<div className='gap-x-10 flex justify-center'>
 							<span
-								className={`${chooseFontColor} cursor-pointer ${stayFormVisible ? `border-b-2 ${chooseBorderColor} font-semibold` : ''
-									}`}
-
+								className={`${chooseFontColor} cursor-pointer ${
+									stayFormVisible
+										? `border-b-2 ${chooseBorderColor} font-semibold`
+										: ''
+								}`}
 								onClick={handleStayClick}>
 								Stay
 							</span>
 							<span
-
-								className={`${chooseFontColor} cursor-pointer ${flightsFormVisible ? `border-b-2 ${chooseBorderColor} font-semibold` : ''
-									}`}
-
+								className={`${chooseFontColor} cursor-pointer ${
+									flightsFormVisible
+										? `border-b-2 ${chooseBorderColor} font-semibold`
+										: ''
+								}`}
 								onClick={handleFlightsClick}>
 								Flights
 							</span>
