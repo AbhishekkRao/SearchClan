@@ -50,9 +50,15 @@ const SearchForm = ({ sector }) => {
 	const handleGoBack = () => {
 		setFlightsFormVisible(true);
 		setPackagesVisible(false);
-	}
+	};
 
-	let decoration1, decoration2, decoration3, chooseBgImage, chooseFontColor, chooseButtonColor, avatar;
+	let decoration1,
+		decoration2,
+		decoration3,
+		chooseBgImage,
+		chooseFontColor,
+		chooseButtonColor,
+		avatar;
 	if (sector === 'medical') {
 		decoration1 = medicalDecor1;
 		decoration2 = medicalDecor2;
@@ -89,7 +95,7 @@ const SearchForm = ({ sector }) => {
 
 	return (
 		<div className={'flex justify-center'}>
-			<div className='relative bg-white bg-opacity-50 w-1/2 rounded-3xl p-10 my-20'>
+			<div className='relative bg-white bg-opacity-50 w-1/2 rounded-3xl p-20 my-20'>
 				{decoration1 && (
 					<img
 						src={decoration1}
@@ -115,50 +121,55 @@ const SearchForm = ({ sector }) => {
 					<img
 						src={avatar}
 						alt='Avatar'
-						className='absolute top-0 right-0 transform -translate-x-10 -translate-y-36 z-20'
+						className='absolute -top-4 right-0 -translate-x-20 -translate-y-60 z-20 '
 					/>
 				)}
 				<div
 					className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-cover bg-center opacity-50'
 					style={{ backgroundImage: `url(${chooseBgImage})` }}></div>
 				<div className='relative z-10 w-full h-full'>
-					{!packagesVisible &&
+					{!packagesVisible && (
 						<div className='gap-x-10 flex justify-center'>
 							<span
-								className={`${chooseFontColor} cursor-pointer ${stayFormVisible ? 'border-b-2 border-white font-semibold' : ''
-									}`}
+								className={`${chooseFontColor} cursor-pointer ${
+									stayFormVisible ? 'border-b-2 border-white font-semibold' : ''
+								}`}
 								onClick={handleStayClick}>
 								Stay
 							</span>
 							<span
-								className={`${chooseFontColor} cursor-pointer ${flightsFormVisible ? 'border-b-2 border-white font-semibold' : ''
-									}`}
+								className={`${chooseFontColor} cursor-pointer ${
+									flightsFormVisible
+										? 'border-b-2 border-white font-semibold'
+										: ''
+								}`}
 								onClick={handleFlightsClick}>
 								Flights
 							</span>
 						</div>
-					}
-					{stayFormVisible &&
+					)}
+					{stayFormVisible && (
 						<StaySearch
 							fontColor={chooseFontColor}
 							buttonColor={chooseButtonColor}
-						/>}
+						/>
+					)}
 
-					{flightsFormVisible &&
+					{flightsFormVisible && (
 						<FlightSearch
 							fontColor={chooseFontColor}
 							buttonColor={chooseButtonColor}
 							showPackages={showPackages}
-						/>}
+						/>
+					)}
 
-					{packagesVisible &&
+					{packagesVisible && (
 						<Packages
 							fontColor={chooseFontColor}
 							buttonColor={chooseButtonColor}
 							handleGoBack={handleGoBack}
 						/>
-					}
-
+					)}
 				</div>
 			</div>
 		</div>
@@ -166,5 +177,3 @@ const SearchForm = ({ sector }) => {
 };
 
 export default SearchForm;
-
-

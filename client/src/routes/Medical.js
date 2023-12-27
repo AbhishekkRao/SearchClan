@@ -24,8 +24,9 @@ const Medical = () => {
 					className='w-40 mx-12'
 				/>
 			</div>
-
-			<SearchForm sector='medical' />
+			<div className='my-40'>
+				<SearchForm sector='medical' />
+			</div>
 		</div>
 	);
 };
