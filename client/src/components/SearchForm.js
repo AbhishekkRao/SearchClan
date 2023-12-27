@@ -52,17 +52,15 @@ const SearchForm = ({ sector }) => {
 		setPackagesVisible(false);
 	};
 
-<<<<<<< HEAD
-	let decoration1, decoration2, decoration3, chooseBgImage, chooseFontColor, chooseButtonColor, chooseBorderColor, avatar;
-=======
 	let decoration1,
 		decoration2,
 		decoration3,
 		chooseBgImage,
 		chooseFontColor,
 		chooseButtonColor,
+		chooseBorderColor,
 		avatar;
->>>>>>> f1fa4f175fa3b1c7fa227901e051587fd620b406
+
 	if (sector === 'medical') {
 		decoration1 = medicalDecor1;
 		decoration2 = medicalDecor2;
@@ -136,34 +134,20 @@ const SearchForm = ({ sector }) => {
 					className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-cover bg-center opacity-50'
 					style={{ backgroundImage: `url(${chooseBgImage})` }}></div>
 				<div className='relative z-10 w-full h-full'>
-<<<<<<< HEAD
-					{!packagesVisible &&
-						<div className='gap-x-10 flex justify-start ml-28'>
-							<span
-								className={`${chooseFontColor} cursor-pointer ${stayFormVisible ? `border-b-2 ${chooseBorderColor} font-semibold` : ''
-									}`}
-=======
 					{!packagesVisible && (
 						<div className='gap-x-10 flex justify-center'>
 							<span
-								className={`${chooseFontColor} cursor-pointer ${
-									stayFormVisible ? 'border-b-2 border-white font-semibold' : ''
-								}`}
->>>>>>> f1fa4f175fa3b1c7fa227901e051587fd620b406
+								className={`${chooseFontColor} cursor-pointer ${stayFormVisible ? `border-b-2 ${chooseBorderColor} font-semibold` : ''
+									}`}
+
 								onClick={handleStayClick}>
 								Stay
 							</span>
 							<span
-<<<<<<< HEAD
+
 								className={`${chooseFontColor} cursor-pointer ${flightsFormVisible ? `border-b-2 ${chooseBorderColor} font-semibold` : ''
 									}`}
-=======
-								className={`${chooseFontColor} cursor-pointer ${
-									flightsFormVisible
-										? 'border-b-2 border-white font-semibold'
-										: ''
-								}`}
->>>>>>> f1fa4f175fa3b1c7fa227901e051587fd620b406
+
 								onClick={handleFlightsClick}>
 								Flights
 							</span>
