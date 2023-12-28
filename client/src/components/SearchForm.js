@@ -28,9 +28,10 @@ import meetingDecor3 from '../assets/meeting-decor3.svg';
 import meetingAvatar from '../assets/meet-avatar.png';
 
 const SearchForm = ({ sector }) => {
-	const [stayFormVisible, setStayFormVisible] = useState(true);
-	const [flightsFormVisible, setFlightsFormVisible] = useState(false);
+	const [stayFormVisible, setStayFormVisible] = useState(false);
+	const [flightsFormVisible, setFlightsFormVisible] = useState(true);
 	const [packagesVisible, setPackagesVisible] = useState(false);
+	const [formDetails, setFormDetails] = useState();
 
 	const handleStayClick = () => {
 		setStayFormVisible(true);
@@ -41,6 +42,34 @@ const SearchForm = ({ sector }) => {
 		setFlightsFormVisible(true);
 		setStayFormVisible(false);
 	};
+
+	const handleFormDetails = async (flightDetails) => {
+		setFormDetails(flightDetails);
+		console.log('show packages', formDetails);
+		const {
+			arrivalDate,
+			departureDate,
+			flightAdditionalInputs,
+			flightAdults,
+			flightChildren,
+			fromLocation,
+			toLocation
+		} = formDetails;
+
+		// Construct the API URL
+		// const apiUrl = `https://axisapi.onrender.com/makepack?source=${fromLocation}&destination=${toLocation}&date1=${departureDate}&date2=${arrivalDate}&event=${flightAdults + flightChildren}&additionalInputs=${flightAdditionalInputs}`;
+		const apiUrl = `https://axisapi.onrender.com/makepack?source=${fromLocation}&destination=${toLocation}&date1=${departureDate}&date2=${arrivalDate}&event=${sector}`;
+		console.log(apiUrl);
+
+		const response = await fetch(apiUrl);
+
+		if (!response.ok) {
+			throw new Error(`Failed to fetch data. Status: ${response.status}`);
+		}
+		const data = await response.json();
+		console.log("Fetched data:", data);
+		// showPackages();
+	}
 
 	const showPackages = () => {
 		setFlightsFormVisible(false);
@@ -136,7 +165,7 @@ const SearchForm = ({ sector }) => {
 				<div className='relative -top-6 z-10 w-full h-full'>
 					{!packagesVisible && (
 						<div className='gap-x-10 flex justify-center'>
-							<span
+							{/* <span
 								className={`${chooseFontColor} cursor-pointer ${
 									stayFormVisible
 										? `border-b-2 ${chooseBorderColor} font-semibold`
@@ -144,15 +173,14 @@ const SearchForm = ({ sector }) => {
 								}`}
 								onClick={handleStayClick}>
 								Stay
-							</span>
+							</span> */}
 							<span
-								className={`${chooseFontColor} cursor-pointer ${
-									flightsFormVisible
-										? `border-b-2 ${chooseBorderColor} font-semibold`
-										: ''
-								}`}
+								className={`${chooseFontColor} cursor-pointer ${flightsFormVisible
+									? `border-b-2 ${chooseBorderColor} font-semibold`
+									: ''
+									}`}
 								onClick={handleFlightsClick}>
-								Flights
+								Search
 							</span>
 						</div>
 					)}
@@ -168,6 +196,7 @@ const SearchForm = ({ sector }) => {
 							fontColor={chooseFontColor}
 							buttonColor={chooseButtonColor}
 							showPackages={showPackages}
+							handleFormDetails={handleFormDetails}
 						/>
 					)}
 

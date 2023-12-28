@@ -1,20 +1,26 @@
 import React, { useState } from 'react';
 import { Icon } from '@iconify/react';
 
-const FlightSearch = ({ fontColor, buttonColor, showPackages }) => {
+const FlightSearch = ({ fontColor, buttonColor, showPackages, handleFormDetails }) => {
 	const [fromLocation, setFromLocation] = useState('');
 	const [toLocation, setToLocation] = useState('');
 	const [departureDate, setDepartureDate] = useState('');
 	const [arrivalDate, setArrivalDate] = useState('');
 	const [flightAdults, setFlightAdults] = useState(1);
 	const [flightChildren, setFlightChildren] = useState(0);
-	const [flightInfants, setFlightInfants] = useState(0);
-	const [cabinClass, setCabinClass] = useState('Economy');
 	const [flightAdditionalInputs, setFlightAdditionalInputs] = useState('');
 
 	const handleFlightsFormSubmit = () => {
-		console.log('Flights form submitted successfully!');
-		showPackages();
+		const flightDetails = {
+			fromLocation,
+			toLocation,
+			departureDate,
+			arrivalDate,
+			flightAdults,
+			flightChildren,
+			flightAdditionalInputs
+		};
+		handleFormDetails(flightDetails);
 	};
 
 	const handleSwap = () => {
@@ -47,7 +53,7 @@ const FlightSearch = ({ fontColor, buttonColor, showPackages }) => {
 					/>
 				</button>
 				<div className='w-1/2'>
-					<label className='  '>Going to</label>
+					<label className=''>Going to</label>
 					<input
 						type='text'
 						className='w-full h-12 mt-2 p-2 border rounded'
@@ -80,7 +86,7 @@ const FlightSearch = ({ fontColor, buttonColor, showPackages }) => {
 				</div>
 			</div>
 			<div className='flex flex-col justify-between mt-4'>
-				<label className='  '>Travellers & Cabin Class</label>
+				<label className='  '>Travellers</label>
 				<div className='flex mt-2 gap-x-8'>
 					<select
 						className='w-full h-12 mt-2 p-2 border rounded'
