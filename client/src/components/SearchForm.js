@@ -33,6 +33,58 @@ const SearchForm = ({ sector }) => {
 	const [packagesVisible, setPackagesVisible] = useState(false);
 	const [formDetails, setFormDetails] = useState();
 
+	let decoration1,
+		decoration2,
+		decoration3,
+		chooseBgImage,
+		chooseFontColor,
+		chooseButtonColor,
+		chooseBorderColor,
+		avatar,
+		sectorNumber;
+
+	if (sector === 'medical') {
+		sectorNumber = 3;
+		decoration1 = medicalDecor1;
+		decoration2 = medicalDecor2;
+		decoration3 = medicalDecor3;
+		chooseBgImage = medimg;
+		chooseFontColor = 'text-medical-text';
+		chooseButtonColor = 'bg-medical-button';
+		chooseBorderColor = 'border-medical-text';
+		avatar = medicalAvatar;
+	} else if (sector === 'vacation') {
+		sectorNumber = 1;
+		decoration1 = vacationDecor1;
+		decoration2 = vacationDecor2;
+		decoration3 = vacationDecor3;
+		chooseBgImage = vacimg;
+		chooseFontColor = 'text-vacation-text';
+		chooseButtonColor = 'bg-vacation-button';
+		chooseBorderColor = 'border-vacation-text';
+		avatar = vacationAvatar;
+	} else if (sector === 'wedding') {
+		sectorNumber = 0;
+		decoration1 = weddingDecor1;
+		decoration2 = weddingDecor2;
+		decoration3 = weddingDecor3;
+		chooseBgImage = wedimg;
+		chooseFontColor = 'text-wedding-text';
+		chooseButtonColor = 'bg-wedding-button';
+		chooseBorderColor = 'border-wedding-text';
+		avatar = weddingAvatar;
+	} else if (sector === 'meeting') {
+		sectorNumber = 2;
+		decoration1 = meetingDecor1;
+		decoration2 = meetingDecor2;
+		decoration3 = meetingDecor3;
+		chooseBgImage = meetimg;
+		chooseFontColor = 'text-meeting-text';
+		chooseButtonColor = 'bg-meeting-button';
+		chooseBorderColor = 'border-meeting-text';
+		avatar = meetingAvatar;
+	}
+
 	const handleStayClick = () => {
 		setStayFormVisible(true);
 		setFlightsFormVisible(false);
@@ -58,7 +110,7 @@ const SearchForm = ({ sector }) => {
 
 		// Construct the API URL
 		// const apiUrl = `https://axisapi.onrender.com/makepack?source=${fromLocation}&destination=${toLocation}&date1=${departureDate}&date2=${arrivalDate}&event=${flightAdults + flightChildren}&additionalInputs=${flightAdditionalInputs}`;
-		const apiUrl = `https://axisapi.onrender.com/makepack?source=${fromLocation}&destination=${toLocation}&date1=${departureDate}&date2=${arrivalDate}&event=${sector}`;
+		const apiUrl = `https://axisapi.onrender.com/makepack?source=${fromLocation}&destination=${toLocation}&date1=${departureDate}&date2=${arrivalDate}&event=${sectorNumber}`;
 		console.log(apiUrl);
 
 		const response = await fetch(apiUrl);
@@ -80,53 +132,6 @@ const SearchForm = ({ sector }) => {
 		setFlightsFormVisible(true);
 		setPackagesVisible(false);
 	};
-
-	let decoration1,
-		decoration2,
-		decoration3,
-		chooseBgImage,
-		chooseFontColor,
-		chooseButtonColor,
-		chooseBorderColor,
-		avatar;
-
-	if (sector === 'medical') {
-		decoration1 = medicalDecor1;
-		decoration2 = medicalDecor2;
-		decoration3 = medicalDecor3;
-		chooseBgImage = medimg;
-		chooseFontColor = 'text-medical-text';
-		chooseButtonColor = 'bg-medical-button';
-		chooseBorderColor = 'border-medical-text';
-		avatar = medicalAvatar;
-	} else if (sector === 'vacation') {
-		decoration1 = vacationDecor1;
-		decoration2 = vacationDecor2;
-		decoration3 = vacationDecor3;
-		chooseBgImage = vacimg;
-		chooseFontColor = 'text-vacation-text';
-		chooseButtonColor = 'bg-vacation-button';
-		chooseBorderColor = 'border-vacation-text';
-		avatar = vacationAvatar;
-	} else if (sector === 'wedding') {
-		decoration1 = weddingDecor1;
-		decoration2 = weddingDecor2;
-		decoration3 = weddingDecor3;
-		chooseBgImage = wedimg;
-		chooseFontColor = 'text-wedding-text';
-		chooseButtonColor = 'bg-wedding-button';
-		chooseBorderColor = 'border-wedding-text';
-		avatar = weddingAvatar;
-	} else if (sector === 'meeting') {
-		decoration1 = meetingDecor1;
-		decoration2 = meetingDecor2;
-		decoration3 = meetingDecor3;
-		chooseBgImage = meetimg;
-		chooseFontColor = 'text-meeting-text';
-		chooseButtonColor = 'bg-meeting-button';
-		chooseBorderColor = 'border-meeting-text';
-		avatar = meetingAvatar;
-	}
 
 	return (
 		<div className={'flex justify-center'}>
