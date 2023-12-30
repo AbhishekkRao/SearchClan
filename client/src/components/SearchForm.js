@@ -98,29 +98,31 @@ const SearchForm = ({ sector }) => {
 	const handleFormDetails = async (flightDetails) => {
 		setFormDetails(flightDetails);
 		console.log('show packages', formDetails);
-		const {
-			arrivalDate,
-			departureDate,
-			flightAdditionalInputs,
-			flightAdults,
-			flightChildren,
-			fromLocation,
-			toLocation,
-		} = formDetails;
 
-		// Construct the API URL
-		const apiUrl = `https://axisapi.onrender.com/makepack?source=${fromLocation}&no_of_people=${flightAdults}&recommend=${flightAdditionalInputs}&destination=${toLocation}&date1=${departureDate}&date2=${arrivalDate}&event=${sectorNumber}`;
-		//const apiUrl = `https://axisapi.onrender.com/makepack?source=${arrivalDate}&event=${sectorNumber}`;
-		console.log(apiUrl);
+		if (flightDetails) {
+			const {
+				arrivalDate,
+				departureDate,
+				flightAdditionalInputs,
+				flightAdults,
+				flightChildren,
+				fromLocation,
+				toLocation,
+			} = flightDetails;
 
-		const response = await fetch(apiUrl);
+			// Construct the API URL
+			const apiUrl = `https://axisapi.onrender.com/makepack?source=${fromLocation}&no_of_people=${flightAdults}&recommend=${flightAdditionalInputs}&destination=${toLocation}&date1=${departureDate}&date2=${arrivalDate}&event=${sectorNumber}`;
+			console.log(apiUrl);
 
-		if (!response.ok) {
-			throw new Error(`Failed to fetch data. Status: ${response.status}`);
+			const response = await fetch(apiUrl);
+
+			if (!response.ok) {
+				throw new Error(`Failed to fetch data. Status: ${response.status}`);
+			}
+			const data = await response.json();
+			console.log('Fetched data:', data);
+			showPackages();
 		}
-		const data = await response.json();
-		console.log('Fetched data:', data);
-		// showPackages();
 	};
 
 	const showPackages = () => {
