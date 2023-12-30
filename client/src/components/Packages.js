@@ -11,7 +11,7 @@ const Packages = ({ fontColor, handleGoBack }) => {
                         <Icon icon="ep:back" width={25} />
                     </button>
                     <span className='text-2xl font-semibold'>
-                       <p className={`${fontColor}`}> Available Packages </p>
+                        <p className={`${fontColor}`}> Available Packages </p>
                     </span>
                 </div>
                 <div className='gap-y-5 flex flex-col'>

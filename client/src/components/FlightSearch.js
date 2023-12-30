@@ -37,7 +37,7 @@ const FlightSearch = ({
 
 	const handleSwap = () => {
 		// Swap values of fromLocation and toLocation
-		const temp = fromLocation;
+		let temp = fromLocation;
 		setFromLocation(toLocation);
 		setToLocation(temp);
 	};

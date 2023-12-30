@@ -92,7 +92,6 @@ export const airportOptions = [
 	{ value: 'BKK', label: 'BKK - Bangkok Suvarnabhumi' },
 	{ value: 'KUL', label: 'KUL - Kuala Lumpur' },
 	{ value: 'CGK', label: 'CGK - Jakarta Soekarno-Hatta' },
-	{ value: 'DEL', label: 'DEL - New Delhi' },
 	{ value: 'HKG', label: 'HKG - Hong Kong' },
 	{ value: 'SIN', label: 'SIN - Singapore Changi' },
 	{ value: 'DXB', label: 'DXB - Dubai' },
