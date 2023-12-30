@@ -105,12 +105,12 @@ const SearchForm = ({ sector }) => {
 			flightAdults,
 			flightChildren,
 			fromLocation,
-			toLocation
+			toLocation,
 		} = formDetails;
 
 		// Construct the API URL
-		// const apiUrl = `https://axisapi.onrender.com/makepack?source=${fromLocation}&destination=${toLocation}&date1=${departureDate}&date2=${arrivalDate}&event=${flightAdults + flightChildren}&additionalInputs=${flightAdditionalInputs}`;
-		const apiUrl = `https://axisapi.onrender.com/makepack?source=${fromLocation}&destination=${toLocation}&date1=${departureDate}&date2=${arrivalDate}&event=${sectorNumber}`;
+		const apiUrl = `https://axisapi.onrender.com/makepack?source=${fromLocation}&no_of_people=${flightAdults}&recommend=${flightAdditionalInputs}&destination=${toLocation}&date1=${departureDate}&date2=${arrivalDate}&event=${sectorNumber}`;
+		//const apiUrl = `https://axisapi.onrender.com/makepack?source=${arrivalDate}&event=${sectorNumber}`;
 		console.log(apiUrl);
 
 		const response = await fetch(apiUrl);
@@ -119,9 +119,9 @@ const SearchForm = ({ sector }) => {
 			throw new Error(`Failed to fetch data. Status: ${response.status}`);
 		}
 		const data = await response.json();
-		console.log("Fetched data:", data);
+		console.log('Fetched data:', data);
 		// showPackages();
-	}
+	};
 
 	const showPackages = () => {
 		setFlightsFormVisible(false);
@@ -180,10 +180,11 @@ const SearchForm = ({ sector }) => {
 								Stay
 							</span> */}
 							<span
-								className={`${chooseFontColor} cursor-pointer ${flightsFormVisible
-									? `border-b-2 ${chooseBorderColor} font-semibold`
-									: ''
-									}`}
+								className={`${chooseFontColor} cursor-pointer ${
+									flightsFormVisible
+										? `border-b-2 ${chooseBorderColor} font-semibold`
+										: ''
+								}`}
 								onClick={handleFlightsClick}>
 								Search
 							</span>
