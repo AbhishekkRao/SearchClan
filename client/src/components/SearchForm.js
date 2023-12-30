@@ -166,7 +166,7 @@ const SearchForm = ({ sector }) => {
 					<img
 						src={avatar}
 						alt='Avatar'
-						className='absolute -top-4 right-0 -translate-x-20 -translate-y-60 z-20 '
+						className='absolute -top-4 right-0 -translate-x-12 -translate-y-60 z-20 '
 					/>
 				)}
 				<div
