@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import { Icon } from '@iconify/react';
+import Select from 'react-select';
+import { airportOptions } from '../assets/airportCodes';
 
-const FlightSearch = ({ fontColor, buttonColor, showPackages, handleFormDetails }) => {
+const FlightSearch = ({
+	fontColor,
+	buttonColor,
+	showPackages,
+	handleFormDetails,
+}) => {
 	const [fromLocation, setFromLocation] = useState('');
 	const [toLocation, setToLocation] = useState('');
 	const [departureDate, setDepartureDate] = useState('');
@@ -18,7 +25,7 @@ const FlightSearch = ({ fontColor, buttonColor, showPackages, handleFormDetails 
 			arrivalDate,
 			flightAdults,
 			flightChildren,
-			flightAdditionalInputs
+			flightAdditionalInputs,
 		};
 		handleFormDetails(flightDetails);
 	};
@@ -35,12 +42,14 @@ const FlightSearch = ({ fontColor, buttonColor, showPackages, handleFormDetails 
 			<div className='flex mt-6 justify-between items-center'>
 				<div className='w-1/2'>
 					<label className=''>From</label>
-					<input
-						type='text'
-						className='w-full h-12 mt-2 p-2 border rounded'
-						placeholder='Enter departure location'
-						value={fromLocation}
-						onChange={(e) => setFromLocation(e.target.value)}
+					<Select
+						options={airportOptions}
+						value={airportOptions.find(
+							(option) => option.value === fromLocation
+						)}
+						onChange={(selectedOption) => setFromLocation(selectedOption.value)}
+						isSearchable
+						placeholder='Select Departure Location'
 					/>
 				</div>
 				<button
@@ -53,13 +62,13 @@ const FlightSearch = ({ fontColor, buttonColor, showPackages, handleFormDetails 
 					/>
 				</button>
 				<div className='w-1/2'>
-					<label className=''>Going to</label>
-					<input
-						type='text'
-						className='w-full h-12 mt-2 p-2 border rounded'
-						placeholder='Enter arrival location'
-						value={toLocation}
-						onChange={(e) => setToLocation(e.target.value)}
+					<label className=''>To</label>
+					<Select
+						options={airportOptions}
+						value={airportOptions.find((option) => option.value === toLocation)}
+						onChange={(selectedOption) => setToLocation(selectedOption.value)}
+						isSearchable
+						placeholder='Select Arrival Location'
 					/>
 				</div>
 			</div>
