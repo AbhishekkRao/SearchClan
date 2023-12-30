@@ -18,6 +18,11 @@ const FlightSearch = ({
 	const [flightAdditionalInputs, setFlightAdditionalInputs] = useState('');
 
 	const handleFlightsFormSubmit = () => {
+		if (!fromLocation || !toLocation || !departureDate || !arrivalDate) {
+			alert('Please fill in the required fields.');
+			return;
+		}
+
 		const flightDetails = {
 			fromLocation,
 			toLocation,
