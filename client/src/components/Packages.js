@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { Icon } from '@iconify/react'
 import PackageCard from './PackageCard'
 
-const Packages = ({ fontColor, handleGoBack, avatarContent }) => {
+const Packages = ({ fontColor, handleGoBack, avatarContent, formDetails }) => {
     const [package1, setpackage1] = useState();
+    const [apiDone, setApiDone] = useState(false);
     const getPackage = async () => {
-        avatarContent = "Medical Treatment Escape: Fly with IndiGo airline on flight 6E203 from Indira Gandhi International to Hyderabad Airport. Stay at The Golkonda Hyderabad, a luxurious four-star hotel at the foot of Banjara Hills. With impeccable service and a convenient location, it is the perfect gateway hotel for your medical treatment trip. Explore the city's main commercial and entertainment hubs and experience the distinctive level of luxury and comfort. Indulge in the exclusive medical facilities offered by the destination and rejuvenate yourself. Return on flight 6E2056 and cherish the memories of a successful medical treatment journey.";
+        // avatarContent = "Medical Treatment Escape: Fly with IndiGo airline on flight 6E203 from Indira Gandhi International to Hyderabad Airport. Stay at The Golkonda Hyderabad, a luxurious four-star hotel at the foot of Banjara Hills. With impeccable service and a convenient location, it is the perfect gateway hotel for your medical treatment trip. Explore the city's main commercial and entertainment hubs and experience the distinctive level of luxury and comfort. Indulge in the exclusive medical facilities offered by the destination and rejuvenate yourself. Return on flight 6E2056 and cherish the memories of a successful medical treatment journey.";
         const newAvatarContent = avatarContent.replace(/ /g, '%');
 
         const apiUrl = `https://axisapi.onrender.com/packdetail?package=${newAvatarContent}`;
@@ -19,6 +20,7 @@ const Packages = ({ fontColor, handleGoBack, avatarContent }) => {
         console.log('response', response);
         const data = await response.json();
         setpackage1(data);
+        package1 !== null ? setApiDone(true) : setApiDone(false);
         console.log("packageDetails", package1);
     }
 
@@ -38,10 +40,20 @@ const Packages = ({ fontColor, handleGoBack, avatarContent }) => {
                     </span>
                 </div>
                 <div className='gap-y-5 flex flex-col'>
-                    <PackageCard
-                        packageDetails={package1}
-                    />
-                    <PackageCard />
+                    {
+                        apiDone &&
+                        <PackageCard
+                            package={package1}
+                            formDetails={formDetails}
+                        />
+                    }
+                    {
+                        apiDone &&
+                        <PackageCard
+                            package={package1}
+                            formDetails={formDetails}
+                        />
+                    }
                 </div>
             </div>
         </div>

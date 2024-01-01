@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Package_world from '../assets/Package_world.svg';
 import package_line1 from '../assets/package_line1.svg';
 import package_line2 from '../assets/package_line2.svg';
@@ -25,7 +25,7 @@ const Deliverables = ({ text, text2, icon, height }) => {
 	);
 };
 
-const PackageCard = (buttonColor, packageDetails) => {
+const PackageCard = (buttonColor, package1, formDetails) => {
 	return (
 		<div className='bg-white rounded-2xl h-64 flex justify-between'>
 			<div className='flex items-center p-8 pr-0'>
@@ -33,7 +33,7 @@ const PackageCard = (buttonColor, packageDetails) => {
 			</div>
 			<div className='flex flex-col justify-between p-5 w-2/4'>
 				<span className='text-bolder text-xl font-bold'>
-					Adem & Havva Medical Center
+					{package1.hotel.name}
 				</span>
 				<div className='text-gray-500 flex gap-x-3 text-lg'>
 					<span className='flex items-center gap-x-1'>
@@ -41,7 +41,7 @@ const PackageCard = (buttonColor, packageDetails) => {
 							icon='ion:location-outline'
 							width='14'
 						/>
-						<p className='text-xs'>Islanbul, Turkey</p>
+						<p className='text-xs'>{package1.flights[0].arrival_airport}</p>
 					</span>
 					<span className='flex items-center gap-x-1'>
 						<Icon
@@ -52,7 +52,7 @@ const PackageCard = (buttonColor, packageDetails) => {
 					</span>
 				</div>
 				<div className='text-gray-600 text-xl flex items-center gap-x-3'>
-					<span>DEL</span>
+					<span>{formDetails.fromLocation}</span>
 					<span>
 						<img src={package_line1} />
 					</span>
@@ -63,10 +63,10 @@ const PackageCard = (buttonColor, packageDetails) => {
 						/>
 					</span>
 					<span>
-						<img src={package_line2} />
+						<img src={package_line3} />
 					</span>
-					<span>IST</span>
-					<span>
+					<span>{formDetails.toLocation}</span>
+					{/* <span>
 						<img src={package_line2} />
 					</span>
 					<span>
@@ -75,7 +75,7 @@ const PackageCard = (buttonColor, packageDetails) => {
 					<span>
 						<img src={package_line3} />
 					</span>
-					<span>TEH</span>
+					<span>TEH</span> */}
 				</div>
 				<div className='flex gap-x-5 text-gray-600 justify-between place-items-center'>
 					<Deliverables
@@ -110,20 +110,20 @@ const PackageCard = (buttonColor, packageDetails) => {
 			<div className='border-l-2 p-5 pt-10 gap-y-2 flex flex-col'>
 				<div className='flex justify-between'>
 					<span className='text-gray-500'>Adults</span>
-					<span className='text-gray-800'>2</span>
+					<span className='text-gray-800'>{formDetails.flightAdults}</span>
 				</div>
 				<div className='flex justify-between'>
 					<span className='text-gray-500'>Children</span>
-					<span className='text-gray-800'>2</span>
+					<span className='text-gray-800'>{formDetails.flightChildren}</span>
 				</div>
 				<div className='flex justify-between mt-2'>
 					<span className='text-gray-500'>Total</span>
 					<span className='text-gray-800 text-xl line-through'>
-						&#8377; 125800
+						&#8377; {(package1.estimate_cost.amount) + (package1.estimate_cost.amount * 0.1)}
 					</span>
 				</div>
 				<div className='text-right text-2xl text-black font-bold'>
-					&#8377; 75800
+					&#8377; {package1.estimate_cost.amount}
 				</div>
 				<div
 					className={`bg-blue-500 w-36 h-10 text-white text-xl font-semibold px-4 pt-2 pb-1 mt-3 rounded-lg`}>
