@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { Icon } from '@iconify/react'
-import PackageCard from './PackageCard'
+import React, { useEffect, useState } from 'react';
+import { Icon } from '@iconify/react';
+import PackageCard from './PackageCard';
+import axios from 'axios';
 
 const Packages = ({ fontColor, handleGoBack, avatarContent, formDetails }) => {
     const [package1, setpackage1] = useState();
@@ -12,14 +13,17 @@ const Packages = ({ fontColor, handleGoBack, avatarContent, formDetails }) => {
         const apiUrl = `https://axisapi.onrender.com/packdetail?package=${newAvatarContent}`;
         console.log(apiUrl);
 
-        const response = await fetch(apiUrl);
+        const response = await axios.get(apiUrl);
 
-        if (!response.ok) {
+        if (response.status !== 200) {
             throw new Error(`Failed to fetch data. Status: ${response.status}`);
         }
+
         console.log('response', response);
-        const data = await response.json();
+
+        const data = response.data;
         setpackage1(data);
+
         package1 !== null ? setApiDone(true) : setApiDone(false);
         console.log("packageDetails", package1);
     }
