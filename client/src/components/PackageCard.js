@@ -117,11 +117,11 @@ const PackageCard = ({ buttonColor, package1, formDetails }) => {
 			<div className='border-l-2 p-5 pt-10 gap-y-2 flex flex-col'>
 				<div className='flex justify-between'>
 					<span className='text-gray-500'>Adults</span>
-					<span className='text-gray-800'>2</span>
+					<span className='text-gray-800'>{adults}</span>
 				</div>
 				<div className='flex justify-between'>
 					<span className='text-gray-500'>Children</span>
-					<span className='text-gray-800'>0</span>
+					<span className='text-gray-800'>{children}</span>
 				</div>
 				<div className='flex justify-between mt-2'>
 					<span className='text-gray-500'>Total</span>
