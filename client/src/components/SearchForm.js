@@ -32,6 +32,8 @@ const SearchForm = ({ sector }) => {
 	const [flightsFormVisible, setFlightsFormVisible] = useState(true);
 	const [packagesVisible, setPackagesVisible] = useState(false);
 	const [formDetails, setFormDetails] = useState();
+	const [packagesData, setPackagesData] = useState(null);
+	const [recievedContent, setRecievedContent] = useState(null);
 
 	let decoration1,
 		decoration2,
@@ -97,7 +99,6 @@ const SearchForm = ({ sector }) => {
 
 	const handleFormDetails = async (flightDetails) => {
 		setFormDetails(flightDetails);
-		// console.log('show packages', formDetails);
 
 		if (flightDetails) {
 			const {
@@ -110,20 +111,41 @@ const SearchForm = ({ sector }) => {
 				toLocation,
 			} = flightDetails;
 
-			const newFlightAdditionalInputs = flightAdditionalInputs.replace(/ /g, '%');
+			const newFlightAdditionalInputs = flightAdditionalInputs.replace(
+				/ /g,
+				'%'
+			);
 
 			// Construct the API URL
-			const apiUrl = `https://axisapi.onrender.com/makepack?source=${fromLocation}&no_of_people=${flightAdults + flightChildren}&recommend=${newFlightAdditionalInputs}&destination=${toLocation}&date1=${departureDate}&date2=${arrivalDate}&event=${sectorNumber}`;
-			console.log(apiUrl);
+			const apiUrl = `https://axisapi.onrender.com/makepack?source=${fromLocation}&no_of_people=${
+				flightAdults + flightChildren
+			}&recommend=${newFlightAdditionalInputs}&destination=${toLocation}&date1=${departureDate}&date2=${arrivalDate}&event=${sectorNumber}`;
 
 			const response = await fetch(apiUrl);
 
 			if (!response.ok) {
 				throw new Error(`Failed to fetch data. Status: ${response.status}`);
 			}
+
 			const data = await response.json();
-			// content = data.content;
+			setRecievedContent(data.content);
 			console.log('Fetched data:', data.content);
+
+			// Fetch data from the second API
+			const secondApiUrl = `https://axisapi.onrender.com/packdetail?package=${data.content}`;
+			const secondResponse = await fetch(secondApiUrl);
+
+			if (!secondResponse.ok) {
+				throw new Error(
+					`Failed to fetch second API data. Status: ${secondResponse.status}`
+				);
+			}
+
+			const secondApiData = await secondResponse.json();
+			console.log('Second API Data:', secondApiData.content);
+
+			// Pass the second API data to the Packages component
+			setPackagesData(secondApiData);
 			showPackages();
 		}
 	};
@@ -185,10 +207,11 @@ const SearchForm = ({ sector }) => {
 								Stay
 							</span> */}
 							<span
-								className={`${chooseFontColor} cursor-pointer ${flightsFormVisible
-									? `border-b-2 ${chooseBorderColor} font-semibold`
-									: ''
-									}`}
+								className={`${chooseFontColor} cursor-pointer ${
+									flightsFormVisible
+										? `border-b-2 ${chooseBorderColor} font-semibold`
+										: ''
+								}`}
 								onClick={handleFlightsClick}>
 								Search
 							</span>
@@ -215,6 +238,7 @@ const SearchForm = ({ sector }) => {
 							fontColor={chooseFontColor}
 							buttonColor={chooseButtonColor}
 							handleGoBack={handleGoBack}
+							packagesData={packagesData}
 						/>
 					)}
 				</div>
