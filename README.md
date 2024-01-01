@@ -1,5 +1,5 @@
 
-# Travel Package Automation Service
+# SearchClan- Humanizing Travel Search
 
 ## Description
 This web service automates the creation of travel packages, including flight and hotel bookings, by leveraging the capabilities of OpenAI's APIs. Utilizing input parameters such as source, destination, number of people, and travel dates, the service generates a detailed itinerary, including estimated costs and exclusive details for accommodations and flights.
@@ -37,5 +37,14 @@ Contributions are welcome! If you have suggestions or improvements, please fork 
 ## License
 This project is licensed under the [MIT License](LICENSE.md) - see the LICENSE file for details.
 
-## Contact
-For any queries or further assistance, please reach out to [your-email@example.com](mailto:your-email@example.com).
+## Tech Stack
+HTML, CSS, Javascript, ReactJS, Express, 3.js, Python, OpenAI, Flask, Azure
+
+## Link to Website
+https://searchclan.vercel.app/home
+
+## Video Description
+
+
+https://github.com/AbhishekkRao/SearchClan/assets/106246165/385fb8c7-5063-44e3-977e-629c85a2abfd
+
