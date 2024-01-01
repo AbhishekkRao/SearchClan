@@ -8,7 +8,7 @@ const Packages = ({ fontColor, handleGoBack, avatarContent, formDetails }) => {
     const getPackage = async () => {
         // avatarContent = "Medical Treatment Escape: Fly with IndiGo airline on flight 6E203 from Indira Gandhi International to Hyderabad Airport. Stay at The Golkonda Hyderabad, a luxurious four-star hotel at the foot of Banjara Hills. With impeccable service and a convenient location, it is the perfect gateway hotel for your medical treatment trip. Explore the city's main commercial and entertainment hubs and experience the distinctive level of luxury and comfort. Indulge in the exclusive medical facilities offered by the destination and rejuvenate yourself. Return on flight 6E2056 and cherish the memories of a successful medical treatment journey.";
         const newAvatarContent = avatarContent.replace(/ /g, '%');
-
+        setTimeout('', 20000);
         const apiUrl = `https://axisapi.onrender.com/packdetail?package=${newAvatarContent}`;
         console.log(apiUrl);
 
