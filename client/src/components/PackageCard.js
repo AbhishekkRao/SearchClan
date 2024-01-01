@@ -25,7 +25,7 @@ const Deliverables = ({ text, text2, icon, height }) => {
 	);
 };
 
-const PackageCard = (buttonColor) => {
+const PackageCard = (buttonColor, packageDetails) => {
 	return (
 		<div className='bg-white rounded-2xl h-64 flex justify-between'>
 			<div className='flex items-center p-8 pr-0'>

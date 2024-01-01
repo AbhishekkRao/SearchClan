@@ -1,8 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Icon } from '@iconify/react'
 import PackageCard from './PackageCard'
 
-const Packages = ({ fontColor, handleGoBack }) => {
+const Packages = ({ fontColor, handleGoBack, avatarContent }) => {
+    const [package1, setpackage1] = useState();
+    const getPackage = async () => {
+        avatarContent = "Medical Treatment Escape: Fly with IndiGo airline on flight 6E203 from Indira Gandhi International to Hyderabad Airport. Stay at The Golkonda Hyderabad, a luxurious four-star hotel at the foot of Banjara Hills. With impeccable service and a convenient location, it is the perfect gateway hotel for your medical treatment trip. Explore the city's main commercial and entertainment hubs and experience the distinctive level of luxury and comfort. Indulge in the exclusive medical facilities offered by the destination and rejuvenate yourself. Return on flight 6E2056 and cherish the memories of a successful medical treatment journey.";
+        const newAvatarContent = avatarContent.replace(/ /g, '%');
+
+        const apiUrl = `https://axisapi.onrender.com/packdetail?package=${newAvatarContent}`;
+        console.log(apiUrl);
+
+        const response = await fetch(apiUrl);
+
+        if (!response.ok) {
+            throw new Error(`Failed to fetch data. Status: ${response.status}`);
+        }
+        console.log('response', response);
+        const data = await response.json();
+        setpackage1(data);
+        console.log("packageDetails", package1);
+    }
+
+    useEffect(() => {
+        getPackage();
+    }, []);
+
     return (
         <div>
             <div className='flex flex-col m-5 justify-between gap-y-8'>
@@ -15,7 +38,9 @@ const Packages = ({ fontColor, handleGoBack }) => {
                     </span>
                 </div>
                 <div className='gap-y-5 flex flex-col'>
-                    <PackageCard />
+                    <PackageCard
+                        packageDetails={package1}
+                    />
                     <PackageCard />
                 </div>
             </div>
