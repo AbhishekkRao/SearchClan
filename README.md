@@ -46,5 +46,3 @@ https://searchclan.vercel.app/home
 ## Video Description
 
 
-https://github.com/AbhishekkRao/SearchClan/assets/106246165/385fb8c7-5063-44e3-977e-629c85a2abfd
-
