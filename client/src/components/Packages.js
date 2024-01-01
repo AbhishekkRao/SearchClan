@@ -6,8 +6,14 @@ import axios from 'axios';
 const Packages = ({ fontColor, handleGoBack, avatarContent, formDetails }) => {
     const [package1, setpackage1] = useState();
     const [apiDone, setApiDone] = useState(false);
+
+    useEffect(() => {
+        getPackage();
+    }, []);
+
     const getPackage = async () => {
         // avatarContent = "Medical Treatment Escape: Fly with IndiGo airline on flight 6E203 from Indira Gandhi International to Hyderabad Airport. Stay at The Golkonda Hyderabad, a luxurious four-star hotel at the foot of Banjara Hills. With impeccable service and a convenient location, it is the perfect gateway hotel for your medical treatment trip. Explore the city's main commercial and entertainment hubs and experience the distinctive level of luxury and comfort. Indulge in the exclusive medical facilities offered by the destination and rejuvenate yourself. Return on flight 6E2056 and cherish the memories of a successful medical treatment journey.";
+        console.log(avatarContent);
         const newAvatarContent = avatarContent.replace(/ /g, '%');
         // setTimeout('', 20000);
         const apiUrl = `https://axisapi.onrender.com/packdetail?package=${newAvatarContent}`;
@@ -21,16 +27,11 @@ const Packages = ({ fontColor, handleGoBack, avatarContent, formDetails }) => {
 
         console.log('response', response.data);
 
-        const data = await response.json();
-        setpackage1(data);
+        setpackage1(response.data);
         console.log("packageDetails", package1);
 
         package1 !== null ? setApiDone(true) : setApiDone(false);
     }
-
-    useEffect(() => {
-        getPackage();
-    }, []);
 
     return (
         <div>
